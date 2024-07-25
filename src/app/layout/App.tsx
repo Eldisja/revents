@@ -1,16 +1,19 @@
-import { Button } from "semantic-ui-react"
+import { Container } from "semantic-ui-react"
+import EventDashboard from "../../features/events/dashboard/EventDashboard"
+import NavBar from "./nav/NavBar"
+import { useState } from "react";
 
 function App() {
+  const[formOpen, setFormOpen] = useState(false);
 
   return (
-    <div>
-      <h1>Welcome to Revents</h1>
-      <button className="ui red icon button">
-        <i className="user icon"></i>CSS Button
-      </button>
-
-      <Button icon = 'smile' content = 'React button' color="green" loading={true} />
-    </div>
+    <>
+      <NavBar setFormOpen={setFormOpen}/>
+      <Container className='main'>
+        <EventDashboard formOpen = {formOpen} setFormOpen={setFormOpen}/>
+      </Container>
+      
+    </>
   )
 }
 
